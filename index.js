@@ -2,15 +2,6 @@ const MongoClient = require('mongodb').MongoClient
 const url = 'mongodb://localhost:27017'
 const dbName = 'local'
 
-function getValueForNextSequence(sequenceOfName, db, num){
-   var sequenceDoc = db.findAndModify({
-      query:{_id: sequenceOfName },
-      update: {$inc:{count: num}},
-      new:true
-   })
-   return sequenceDoc.sequence_value
-}
-
 let db
 MongoClient.connect(url, function(err, client) {
   db = client.db(dbName)
