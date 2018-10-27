@@ -11,7 +11,6 @@ MongoClient.connect(url, function(err, client) {
 
 
 app.get('/', (req, res) => {
-  db.
   db.collection('documents').updateOne({ field1: 0 }, { $inc: { items: 1 } })
   res.send('ok')
 })
